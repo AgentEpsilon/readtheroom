@@ -1,0 +1,17 @@
+{
+  "name": "readtheroom",
+  "version": "1.0.0",
+  "description": "phone-based multiplayer game",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Evan Miller",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "shortid": "^2.2.15",
+    "socket.io": "^2.3.0"
+  }
+}
