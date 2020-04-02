@@ -124,7 +124,7 @@ function stopGame() {
     setState(State.STOPPED)
 }
 
-server.listen(8080, () => {
+server.listen(80, () => {
     const addr = server.address()
     console.log(`listening on ${addr.address}:${addr.port}`)
 })

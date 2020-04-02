@@ -10,8 +10,8 @@ export const State = {
 
 export const Timings = {
     [State.STOPPED]: 0,
-    [State.RESPONDING]: 30000,
-    [State.VOTING]: 20000,
+    [State.RESPONDING]: 45000,
+    [State.VOTING]: 30000,
     [State.RESULTS]: 5000,
     [State.LEADERBOARD]: 5000
 }

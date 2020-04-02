@@ -1,0 +1,30 @@
+listening on :::80
+player joined: Hanna
+player joined: Simeon
+player joined: Lien
+game start
+setting state to RESPONDING
+response from player Simeon: Do nothing
+response from player Hanna: Tell them that it wasn’t nice to do and you had to cover
+response from player Lien: Like their post and say I'm so glad you had a miraculous recovery!
+setting state to VOTING
+setting state to RESULTS
+setting state to LEADERBOARD
+setting state to RESPONDING
+response from player Simeon: Pay for it
+response from player Lien: There's no need, we can split this one, no problem!
+response from player Hanna: I dont have enough to cover everyone
+setting state to VOTING
+setting state to RESULTS
+setting state to LEADERBOARD
+setting state to RESPONDING
+response from player Simeon: Let them join in
+response from player Lien: This is an A and B conversation so please see yourself out of it.
+response from player Hanna: stop talking
+setting state to VOTING
+setting state to RESULTS
+setting state to LEADERBOARD
+setting state to STOPPED
+player dc: Hanna
+player dc: Simeon
+player dc: Lien
