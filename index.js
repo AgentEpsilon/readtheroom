@@ -8,7 +8,10 @@ const io = socketio(server)
 import { State, Timings, NUMBER_OF_ROUNDS } from './static/state/SocketState.mjs'
 
 import {readFileSync} from 'fs'
-const questions = JSON.parse(readFileSync('./questions.json', 'utf8'))
+let questions = {}
+function chooseDeck(deck) {
+    questions = JSON.parse(readFileSync(`./decks/${deck}.json`, 'utf8'))
+}
 
 app.use(express.static('static'))
 
@@ -64,9 +67,10 @@ io.on('connection', function (socket) {
     })
 })
 
-function startGame() {
+function startGame(deck) {
     if (gameState !== State.STOPPED) return
-    console.log('game start')
+    console.log(`game start with deck: ${deck}`)
+    chooseDeck(deck)
     round = 1
     askQuestion()
 }

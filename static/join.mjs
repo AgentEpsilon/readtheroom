@@ -32,18 +32,20 @@ export function JoinStopped({ socket }) {
                 clientState.inGame = true
                 clientState.name = name
             }}>
-                <p>Enter your name:</p>
-                <input value=${name} oninput=${e => {setName(e.target.value)}} />
-                <button type="submit">Submit</button>
+                <div class="form-group">
+                    <label for="name">Enter your name:</p>
+                    <input required class="form-control" id="name" value=${name} oninput=${e => {setName(e.target.value)}} />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         `
     } else {
-        return html`<div>Welcome ${name}!<br />Please wait for game to start.</div>`
+        return html`<div><h2>Welcome, ${name}!</h2><h4>Please wait for the game to start.</h4></div>`
     }
 }
 
 export function JoinResponding({ socket, question }) {
-    if (!clientState.inGame) return html`<div>Please wait until the game ends to play.</div>`
+    if (!clientState.inGame) return html`<h2>Please wait until the game ends to play.</h2>`
 
     const [answer, setAnswer] = useState('')
     const [submitted, setSubmitted] = useState(false)
@@ -55,30 +57,36 @@ export function JoinResponding({ socket, question }) {
                 socket.emit('response', answer)
                 setSubmitted(true)
             }}>
-                ${question}
-                <input value=${answer} oninput=${e => {setAnswer(e.target.value)}} />
-                <button type="submit">Submit</button>
+                <div class="form-group">
+                    <label for="question">${question}</label>
+                    <input required class="form-control" id="question" value=${answer} oninput=${e => {setAnswer(e.target.value)}} />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         `
     } else {
-        return html`<div>Submitted!</div>`
+        return html`<h2>Submitted!</h2>`
     }
 }
 
 export function JoinVoting({ responses, socket }) {
-    if (!clientState.inGame) return html`<div>Please wait until the game ends to play.</div>`
+    if (!clientState.inGame) return html`<h2>Please wait until the game ends to play.</h2>`
 
     const [submitted, setSubmitted] = useState(false)
 
     if (!submitted) {
         return html`
             <div>
-                Vote now on your phones<br />
-                ${Object.values(responses).map(r => html`<button onclick=${e => {
-                    e.preventDefault()
-                    socket.emit('vote', r.id)
-                    setSubmitted(true)
-                }}>${r.response}</button>`)}
+                <h2>
+                    Vote for the best response:
+                </h2>
+                <div class="list-group">
+                    ${Object.values(responses).map(r => html`<button type="button" class="list-group-item list-group-item-action" onclick=${e => {
+                        e.preventDefault()
+                        socket.emit('vote', r.id)
+                        setSubmitted(true)
+                    }}>${r.response}</button>`)}
+                </div>
             </div>
         `
     } else {
@@ -87,31 +95,29 @@ export function JoinVoting({ responses, socket }) {
 }
 
 export function JoinResults({ results, socket }) {
-    if (!clientState.inGame) return html`<div>Please wait until the game ends to play.</div>`
+    if (!clientState.inGame) return html`<h2>Please wait until the game ends to play.</h2>`
 
     if (results[socket.id]) {
         return html`
-        <div>
-            You earned:
-            ${results[socket.id].votes} points!
-        </div>
+        <h2>
+            You earned ${results[socket.id].votes} points!
+        </h2>
     `
     } else {
         return html`
-        <div>
+        <h2>
             You didn't submit anything...
-        </div>
+        </h2>
         `
     }
 }
 
 export function JoinLeaderboard({ players, socket }) {
-    if (!clientState.inGame) return html`<div>Please wait until the game ends to play.</div>`
+    if (!clientState.inGame) return html`<h2>Please wait until the game ends to play.</h2>`
 
     return html`
-        <div>
-            You have:<br />
-            ${players[socket.id].votes} total points!
-        </div>
+        <h2>
+            You have ${players[socket.id].votes} total points!
+        </h2>
     `
 }
