@@ -24,6 +24,10 @@ results are shown for that round, then added to the cumulative game totals per p
 
 `npm install`, then `npm test`.
 
+### Playing Remotely
+
+If not all players are on the same network, I suggest using a tool such as [ngrok](https://ngrok.com/) to provide a tunnel to your localhost.
+
 ## Copyright
 
 © Evan Miller, 2020. All rights reserved.

@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        html, body {
+            height: 100%;
+            #background: #333;
+            #color: #fff;
+        }
+        .btn-primary {
+            background-color: #f4b86d;
+            border-color: #f4b86d;
+        }
+
+        @media (min-width: 768px) {
+            .header-image {
+                width: 75%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .header-image {
+                width: 50%;
+            }
+        }
+    </style>
     <title>Read the Room</title>
 </head>
 <body>
-    <a href="create.html">Create a Game (desktop)</a>
-    <a href="join.html">Join a Game (mobile)</a>
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+        <main class="jumbotron">
+            <section class="header-image mx-auto mb-3">
+                <img class="img-thumbnail" src="readtheroom.min.jpg" alt="read the room header image" />
+            </section>
+            <p class="lead">Read the Room is a blah blah blah blah blah.</p>
+            <p>
+                <a href="create.html" class="btn btn-large btn-secondary">Create a Game (desktop)</a>
+                <a href="join.html" class="btn btn-large btn-primary">Join a Game (mobile)</a>
+            </p>
+        </main>
+        <footer class="mt-auto">
+            <p><small>Created by <a href="https://AgentEpsilon.github.io/">Evan Miller</a> & Laura Miller. This game is part of <a href="https://consent-games.squarespace.com/">the Consent Game Collection</a>.</small></p>
+        </footer>
+    </div>
 </body>
 </html>
